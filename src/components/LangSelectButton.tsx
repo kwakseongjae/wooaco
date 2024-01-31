@@ -16,16 +16,4 @@ function LangSelectButton() {
   );
 }
 
-{
-  /* <option value="1">
-          <img
-            src="https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/files/python-logo-only.svg"
-            alt="logo"
-          />
-          <p className="lang-btn">
-            python
-            <img src={arrowDown} alt="down" />
-          </p>
-        </option> */
-}
 export default LangSelectButton;
