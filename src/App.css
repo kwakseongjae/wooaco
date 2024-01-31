@@ -37,6 +37,9 @@
 .codebox {
   width: 768px;
   height: 500px;
+  margin-top: 20px;
+  padding-left: 20px;
+  background-color: #f7f6f3;
   display: flex;
   flex-direction: column;
 }
