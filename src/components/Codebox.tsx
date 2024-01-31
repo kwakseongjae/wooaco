@@ -1,16 +1,11 @@
 import React from "react";
+import LangSelectButton from "./LangSelectButton";
 
 function Codebox() {
   return (
     <>
       <div className="codebox">
-        <div className="codebox_lang">
-          <img
-            src="https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/files/python-logo-only.svg"
-            alt="logo"
-          />
-          <p>python</p>
-        </div>
+        <LangSelectButton />
         <div className="codebox_grid">
           <div className="view-line-numbers">
             <div className="view-line-number">1</div>

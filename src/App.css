@@ -46,16 +46,21 @@
 
 .codebox_lang {
   margin: 10px 0;
-  display: flex;
-  align-items: center;
 }
+
+.codebox_lang .select-btn {
+  /* display: flex;
+  align-items: center; */
+}
+
 .codebox_lang img {
   width: 15px;
   height: 15px;
 }
 
-.codebox_lang p {
+.codebox_lang .lang-btn {
   margin-left: 10px;
+  algin-items: center;
 }
 
 .codebox_grid {
@@ -127,4 +132,48 @@
 .reply {
   font-size: 11px;
   color: gray;
+}
+
+.selectBox {
+  position: relative;
+  width: 100px;
+  height: 30px;
+  margin: 10px 5px;
+  border-radius: 4px;
+}
+.selectBox .select {
+  -webkit-appearance: none; /* 크롬 화살표 없애기 */
+  -moz-appearance: none; /* 파이어폭스 화살표 없애기 */
+  appearance: none; /* 화살표 없애기 */
+  width: inherit;
+  height: inherit;
+  background: transparent;
+  border: 0 none;
+  outline: 0 none;
+  padding: 0 5px;
+  position: relative;
+  z-index: 3;
+  color: gray;
+}
+
+.selectBox .select option {
+  color: gray;
+  padding: 3px 0;
+  font-size: 16px;
+}
+
+.selectBox .icoArrow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  width: 35px;
+  height: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selectBox .icoArrow img {
+  width: 50%;
 }
