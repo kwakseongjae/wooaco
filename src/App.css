@@ -1,4 +1,5 @@
-header .wrapper {
+/* Header */
+.header_wrapper {
   height: 50px;
   display: flex;
   flex-direction: row;
@@ -7,7 +8,8 @@ header .wrapper {
   border-bottom: solid 1px;
 }
 
-.header_logo a {
+.header_logo img {
+  height: 40px;
   text-decoration: none;
   color: inherit;
   margin-left: 10px;
@@ -19,4 +21,107 @@ header .wrapper {
 
 .header_nav div {
   margin: 0 10px;
+}
+
+/* Content */
+.content_wrapper {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.code-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.codebox {
+  width: 768px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.codebox_lang {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+}
+.codebox_lang img {
+  width: 15px;
+  height: 15px;
+}
+
+.codebox_lang p {
+  margin-left: 10px;
+}
+
+.codebox_grid {
+  width: 100%;
+  hegiht: 100%;
+  display: flex;
+}
+
+.view-line-numbers {
+  margin: 0 10px;
+}
+
+.view-line-number {
+  margin-bottom: 5px;
+}
+
+.view-line {
+  margin-bottom: 5px;
+}
+
+.terminal {
+  width: 768px;
+  height: 500px;
+}
+
+.description-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.description {
+  width: 500px;
+  height: 250px;
+  margin-top: 25px;
+}
+
+.comment-list {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+
+.comment-card {
+  display: flex;
+  margin: 10px;
+}
+
+.comment-card img {
+  height: 50px;
+  border-radius: 50%;
+  background-size: contain;
+}
+
+.comment-card .comment-info {
+  displayl: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.author {
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.comment {
+  font-size: 13px;
+}
+
+.reply {
+  font-size: 11px;
+  color: gray;
 }

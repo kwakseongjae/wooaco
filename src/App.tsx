@@ -1,22 +1,26 @@
 import React from "react";
 import "./App.css";
+import Header from "./components/Header";
+import Codebox from "./components/Codebox";
+import Terminal from "./components/Terminal";
+import Description from "./components/Description";
+import CommentList from "./components/CommentList";
 
 function App() {
   return (
-    <div className="App">
-      <header>
-        <div className="wrapper">
-          <div className="header_logo">
-            <a href="#">우아코</a>
-          </div>
-          <div className="header_nav">
-            <div>카테고리</div>
-            <div>로그인</div>
-            <div>회원가입</div>
-          </div>
+    <>
+      <Header />
+      <div className="content_wrapper">
+        <div className="code-container">
+          <Codebox />
+          <Terminal />
         </div>
-      </header>
-    </div>
+        <div className="description-container">
+          <Description />
+          <CommentList />
+        </div>
+      </div>
+    </>
   );
 }
 
