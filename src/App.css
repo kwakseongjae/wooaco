@@ -102,7 +102,6 @@
 
 .description {
   width: 500px;
-  height: 200px;
   margin-top: 25px;
 }
 
@@ -224,4 +223,25 @@
   color: gray;
   padding: 3px 0;
   font-size: 13px;
+}
+
+.profile-card {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+
+.profile-card img {
+  height: 50px;
+  border-radius: 50%;
+  background-size: contain;
+}
+.profile-card .author {
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.description .title {
+  font-size: 25px;
+  margin: 10px 0;
 }
