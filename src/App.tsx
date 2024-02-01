@@ -1,25 +1,17 @@
 import React from "react";
 import "./App.css";
-import Header from "./components/Header";
-import Codebox from "./components/Codebox";
-import Terminal from "./components/Terminal";
-import Description from "./components/Description";
-import CommentList from "./components/CommentList";
-
+import { Routes, Route } from "react-router-dom";
+import DetailPost from "./pages/posts/detail";
+import NewPost from "./pages/posts/new";
+import HomePage from "./pages/home";
 function App() {
   return (
     <>
-      <Header />
-      <div className="content_wrapper">
-        <div className="code-container">
-          <Codebox />
-          <Terminal />
-        </div>
-        <div className="description-container">
-          <Description />
-          <CommentList />
-        </div>
-      </div>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/detail" element={<DetailPost />} />
+        <Route path="/new" element={<NewPost />} />
+      </Routes>
     </>
   );
 }

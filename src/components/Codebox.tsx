@@ -1,6 +1,7 @@
 import React from "react";
 import LangSelectButton from "./LangSelectButton";
 import CodeboxGrid from "./CodeboxGrid";
+import CodeEditor from "./Code";
 
 function Codebox() {
   return (
@@ -8,22 +9,6 @@ function Codebox() {
       <div className="codebox">
         <LangSelectButton />
         <CodeboxGrid />
-        {/* <div className="codebox_grid">
-          <div className="view-line-numbers">
-            <div className="view-line-number">1</div>
-            <div className="view-line-number">2</div>
-            <div className="view-line-number">3</div>
-            <div className="view-line-number">4</div>
-            <div className="view-line-number">5</div>
-          </div>
-          <div className="view-lines">
-            <div className="view-line">code</div>
-            <div className="view-line">code</div>
-            <div className="view-line">code</div>
-            <div className="view-line">code</div>
-            <div className="view-line">code</div>
-          </div>
-        </div> */}
       </div>
     </>
   );

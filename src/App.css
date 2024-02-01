@@ -53,8 +53,8 @@
 }
 
 .codebox_lang .select-btn {
-  /* display: flex;
-  align-items: center; */
+  display: flex;
+  align-items: center;
 }
 
 .codebox_lang img {
@@ -209,8 +209,6 @@
   resize: none;
   color: black;
   border: none;
-  /* border-top: 1px solid #0000007e;
-  border-bottom: 1px solid #0000007e; */
   outline: none;
 }
 
@@ -244,4 +242,8 @@
 .description .title {
   font-size: 25px;
   margin: 10px 0;
+}
+
+.code {
+  display: flex;
 }

@@ -1,10 +1,9 @@
 import React from "react";
+import Code from "./Code";
 
 function CodeboxGrid() {
   return (
-    <div className="codebox_grid">
-      <textarea placeholder="코드를 입력해주세요." />
-    </div>
+    <Code />
   );
 }
 
