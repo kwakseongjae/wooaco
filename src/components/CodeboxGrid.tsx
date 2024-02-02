@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import arrowDown from "../assets/arrowdown.png";
+import { ReactComponent as Edit } from "../assets/edit.svg";
 import next from "../assets/next.png";
 import useBearStore from "../store/store";
 
@@ -24,9 +25,12 @@ const selectList = [
 
 function CodeboxGrid() {
   const [content, setContent] = useState(codeString);
-  const firstButtonValue = useBearStore((state) => state.firstButton);
+  const firstButtonValue = useBearStore((state) => state.firstButtonValue);
   const increaseFirstButtonValue = useBearStore(
     (state) => state.increaseFirstButton
+  );
+  const decreaseFirstButtonValue = useBearStore(
+    (state) => state.decreaseFirstButton
   );
 
   function onChange(e: any) {
@@ -64,21 +68,47 @@ function CodeboxGrid() {
         </div>
       </div>
       <div className="codebox-container">
-        <div className="codebox-typing">
-          <textarea onChange={onChange} />
-        </div>
-        <div className="codebox-result">
+        {firstButtonValue ? (
+          <></>
+        ) : (
+          <div className="codebox-typing">
+            <textarea onChange={onChange} />
+          </div>
+        )}
+
+        <div
+          className="codebox-result"
+          style={firstButtonValue ? { width: "100%" } : {}}
+        >
+          {firstButtonValue ? (
+            <div className="edit-box">
+              <div></div>
+              <button
+                className="edit"
+                onClick={() => decreaseFirstButtonValue()}
+              >
+                <p>수정하기</p>
+                <Edit width="40%" height="100%" strokeWidth="0.5" />
+              </button>
+            </div>
+          ) : (
+            <></>
+          )}
           <SyntaxHighlighter language={selected}>{content}</SyntaxHighlighter>
         </div>
       </div>
-      <div className="next-btn">
-        <button
-          className="icon-button"
-          onClick={() => increaseFirstButtonValue()}
-        >
-          <img src={next} alt="next" /> 다음
-        </button>
-      </div>
+      {firstButtonValue ? (
+        <></>
+      ) : (
+        <div className="next-btn">
+          <button
+            className="icon-button"
+            onClick={() => increaseFirstButtonValue()}
+          >
+            <img src={next} alt="next" /> 다음
+          </button>
+        </div>
+      )}
     </>
   );
 }
