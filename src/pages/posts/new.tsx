@@ -2,10 +2,9 @@ import React from "react";
 import Header from "../../components/Header";
 import Codebox from "../../components/Codebox";
 import Terminal from "../../components/Terminal";
-
+import EditorBox from "../../components/EditorBox";
 
 function NewPost() {
-  
   return (
     <>
       <Header />
@@ -19,7 +18,9 @@ function NewPost() {
           <Codebox />
           <Terminal />
         </div>
-        
+        <div className="editor-container">
+          <EditorBox />
+        </div>
       </div>
     </>
   );

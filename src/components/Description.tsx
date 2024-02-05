@@ -1,6 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+
+const CONTENT_KEY = "CONTENT_KEY";
+
+type Props = {
+  content: string;
+};
 
 function Description() {
+  const [content, setContent] = useState<string>(" ");
+
+  useEffect(() => {
+    try {
+      let localData = localStorage.getItem(CONTENT_KEY);
+      if (localData) {
+        let parsedData = JSON.parse(localData);
+        setContent(`${parsedData}`);
+      }
+    } catch {
+      console.log("No saved Data");
+    }
+  }, []);
+
   return (
     <>
       <div className="description">
@@ -13,15 +36,10 @@ function Description() {
           <div className="follow-button">💖</div>
         </div>
         <div className="title">이게 왜 안되지...</div>
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever
-        since the 1500s, when an unknown printer took a galley of type and
-        scrambled it to make a type specimen book. It has survived not only five
-        centuries, but also the leap into electronic typesetting, remaining
-        essentially unchanged. It was popularised in the 1960s with the release
-        of Letraset sheets containing Lorem Ipsum passages, and more recently
-        with desktop publishing software like Aldus PageMaker including versions
-        of Lorem Ipsum.
+        <ReactMarkdown
+          children={content}
+          remarkPlugins={[remarkGfm]}
+        ></ReactMarkdown>
       </div>
     </>
   );
