@@ -256,6 +256,7 @@
 .codebox-result .edit {
   display: flex;
   flex-direction: row-reverse;
+  justify-content: center;
   align-items: center;
   width: 120px;
   height: 30px;
@@ -264,8 +265,9 @@
   margin: 5px 5px 0 0;
 }
 
-.codebox-result .edit:hover {
-  font-weight: bold;
+.codebox-result .edit img {
+  height: 100%;
+  margin-right: 5px;
 }
 
 .codebox-result .edit p {
@@ -279,6 +281,7 @@
 .edit-box {
   display: flex;
   justify-content: space-between;
+  
 }
 
 /* New Post */

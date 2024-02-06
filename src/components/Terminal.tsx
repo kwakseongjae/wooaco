@@ -1,8 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { ReactComponent as Edit } from "../assets/edit.svg";
 import next from "../assets/next.png";
+import edit from "../assets/edit.png";
 import useBearStore from "../store/store";
 
 const TERMINAL_CONTENT = "TERMINAL_CONTENT";
@@ -49,12 +49,10 @@ function Terminal() {
                 onClick={() => decreaseSecondButtonValue()}
               >
                 <p>수정하기</p>
-                <Edit width="40%" height="100%" strokeWidth="0.5" />
+                <img src={edit} alt="edit" />
               </button>
             </div>
-          ) : (
-            <></>
-          )}
+          ) : null}
           <SyntaxHighlighter language="bash">{content}</SyntaxHighlighter>
         </div>
       </div>
