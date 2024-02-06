@@ -1,6 +1,7 @@
 import { Editor } from "@toast-ui/react-editor";
 import "@toast-ui/editor/dist/toastui-editor.css";
 import { useEffect, useRef, useState } from "react";
+import complete from "../assets/complete.png";
 
 const DESCRIPTION_CONTENT = "DESCRIPTION_CONTENT";
 
@@ -40,7 +41,11 @@ function EditorBox() {
           ["code", "codeblock"],
         ]}
       />
-      <button onClick={handleSubmit}>완료</button>
+      <div className="complete-btn">
+        <button className="icon-button">
+          <img src={complete} alt="complete" /> 완료
+        </button>
+      </div>
     </div>
   );
 }

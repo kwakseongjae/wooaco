@@ -248,7 +248,7 @@
 .codebox-result {
   display: flex;
   flex-direction: column;
-  width: 48%;
+  width: 50%;
   height: 100%;
   background-color: #f5f2f0;
 }
@@ -349,6 +349,12 @@
 }
 
 .next-btn {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 10px;
+}
+
+.complete-btn {
   display: flex;
   flex-direction: row-reverse;
   margin-top: 10px;
