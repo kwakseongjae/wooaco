@@ -1,9 +1,9 @@
-import React from "react";
-import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import DetailPost from "./pages/posts/detail";
-import NewPost from "./pages/posts/new";
-import HomePage from "./pages/home";
+import HomePage from "@pages/home";
+import NewPost from "@pages/posts/new";
+import DetailPost from "@pages/posts/detail";
+import "./App.css";
+
 function App() {
   return (
     <>

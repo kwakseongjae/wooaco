@@ -1,16 +1,14 @@
-import React, { useEffect, useState } from "react";
-import Header from "../../components/Header";
-import Codebox from "../../components/Codebox";
-import Terminal from "../../components/Terminal";
-import Description from "../../components/Description";
-import CommentList from "../../components/CommentList";
-import ContentViewer from "../../components/Viewer";
-import Markdown from "../../components/Viewer";
+import { useEffect, useState } from "react";
+import Header from "@components/Header";
+import Codebox from "@components/Codebox";
+import Terminal from "@components/Terminal";
+import Description from "@components/Description";
+import CommentList from "@components/CommentList";
 
 const CONTENT_KEY = "CONTENT_KEY";
 
 function DetailPost() {
-  const [content, setContent] = useState<string>(" ");
+  const [, setContent] = useState<string>(" ");
 
   useEffect(() => {
     try {
@@ -23,9 +21,11 @@ function DetailPost() {
       console.log("No saved Data");
     }
   }, []);
+
   return (
     <>
       <Header />
+      {/* TODO: detail 페이지에선 readonly로 컨텐츠 제공 */}
       <div className="content_wrapper">
         <div className="code-container">
           <Codebox />
@@ -33,10 +33,8 @@ function DetailPost() {
         </div>
         <div className="description-container">
           <Description />
-          {/* <ContentViewer content={content} /> */}
           <CommentList />
         </div>
-        <div className="viewer"></div>
       </div>
     </>
   );

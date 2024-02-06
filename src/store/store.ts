@@ -1,5 +1,4 @@
 import { create } from "zustand";
-// import { persist } from "zustand/middleware";
 
 interface ButtonState {
   firstButtonValue: boolean;
@@ -12,21 +11,15 @@ interface ButtonState {
   onSubmit: () => void;
 }
 
-const useBearStore = create<ButtonState>()(
-  //   persist(
-  (set) => ({
-    firstButtonValue: false,
-    increaseFirstButton: () => set(() => ({ firstButtonValue: true })),
-    decreaseFirstButton: () => set(() => ({ firstButtonValue: false })),
-    secondButtonValue: false,
-    increaseSecondButton: () => set(() => ({ secondButtonValue: true })),
-    decreaseSecondButton: () => set(() => ({ secondButtonValue: false })),
-    submitButtonValue: false,
-    onSubmit: () => set(() => ({ submitButtonValue: true })),
-  })
-  // {
-  //   name: "button-storage",
-  // }
-);
+const useBearStore = create<ButtonState>()((set) => ({
+  firstButtonValue: false,
+  increaseFirstButton: () => set(() => ({ firstButtonValue: true })),
+  decreaseFirstButton: () => set(() => ({ firstButtonValue: false })),
+  secondButtonValue: false,
+  increaseSecondButton: () => set(() => ({ secondButtonValue: true })),
+  decreaseSecondButton: () => set(() => ({ secondButtonValue: false })),
+  submitButtonValue: false,
+  onSubmit: () => set(() => ({ submitButtonValue: true })),
+}));
 
 export default useBearStore;

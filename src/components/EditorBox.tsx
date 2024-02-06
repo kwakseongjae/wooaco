@@ -1,12 +1,12 @@
+import { useEffect, useRef, useState } from "react";
+import complete from "@assets/complete.png";
 import { Editor } from "@toast-ui/react-editor";
 import "@toast-ui/editor/dist/toastui-editor.css";
-import { useEffect, useRef, useState } from "react";
-import complete from "../assets/complete.png";
 
 const DESCRIPTION_CONTENT = "DESCRIPTION_CONTENT";
 
 function EditorBox() {
-  const [content, setContent] = useState<string>(" ");
+  const [content] = useState<string>(" ");
   const editorRef = useRef<Editor>(null);
 
   useEffect(() => {
@@ -42,7 +42,7 @@ function EditorBox() {
         ]}
       />
       <div className="complete-btn">
-        <button className="icon-button">
+        <button className="icon-button" onClick={handleSubmit}>
           <img src={complete} alt="complete" /> 완료
         </button>
       </div>

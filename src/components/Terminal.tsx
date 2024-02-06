@@ -1,9 +1,8 @@
-import React from "react";
 import { useState } from "react";
+import useBearStore from "@store/store";
+import next from "@assets/next.png";
+import edit from "@assets/edit.png";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import next from "../assets/next.png";
-import edit from "../assets/edit.png";
-import useBearStore from "../store/store";
 
 const TERMINAL_CONTENT = "TERMINAL_CONTENT";
 

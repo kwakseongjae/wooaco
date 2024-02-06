@@ -1,8 +1,7 @@
-import React from "react";
-import Header from "../../components/Header";
-import Codebox from "../../components/Codebox";
-import Terminal from "../../components/Terminal";
-import EditorBox from "../../components/EditorBox";
+import Header from "@components/Header";
+import Codebox from "@components/Codebox";
+import Terminal from "@components/Terminal";
+import EditorBox from "@components/EditorBox";
 
 function NewPost() {
   return (

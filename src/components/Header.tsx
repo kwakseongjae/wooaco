@@ -1,5 +1,4 @@
-import React from "react";
-import woowaco from "../assets/wooaco.png";
+import woowaco from "@assets/wooaco.png";
 
 function Header() {
   return (

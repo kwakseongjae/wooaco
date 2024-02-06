@@ -1,4 +1,3 @@
-import React from "react";
 import CommentCard from "./CommentCard";
 
 function CommentList() {

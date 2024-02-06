@@ -1,9 +1,9 @@
 import { useState } from "react";
+import useBearStore from "@store/store";
+import next from "@assets/next.png";
+import edit from "@assets/edit.png";
+import arrowDown from "@assets/arrowdown.png";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import arrowDown from "../assets/arrowdown.png";
-import next from "../assets/next.png";
-import edit from "../assets/edit.png";
-import useBearStore from "../store/store";
 
 const CODE_CONTENT = "CODE_CONTENT";
 
