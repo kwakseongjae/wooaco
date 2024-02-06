@@ -5,8 +5,10 @@ import { ReactComponent as Edit } from "../assets/edit.svg";
 import next from "../assets/next.png";
 import useBearStore from "../store/store";
 
+const TERMINAL_CONTENT = "TERMINAL_CONTENT";
+
 function Terminal() {
-  const [content, setContent] = useState(" ");
+  const [content, setContent] = useState<string>(" ");
   const secondButtonValue = useBearStore((state) => state.secondButtonValue);
   const increaseSecondButtonValue = useBearStore(
     (state) => state.increaseSecondButton
@@ -14,16 +16,22 @@ function Terminal() {
   const decreaseSecondButtonValue = useBearStore(
     (state) => state.decreaseSecondButton
   );
+
   function onChange(e: any) {
     setContent(e.target?.value);
   }
 
+  const handleSubmit = () => {
+    if (content) {
+      localStorage.setItem(TERMINAL_CONTENT, content);
+      increaseSecondButtonValue();
+    }
+  };
+
   return (
     <>
       <div className="codebox-container">
-        {secondButtonValue ? (
-          <></>
-        ) : (
+        {secondButtonValue ? null : (
           <div className="codebox-typing">
             <textarea onChange={onChange} />
           </div>
@@ -50,14 +58,9 @@ function Terminal() {
           <SyntaxHighlighter language="bash">{content}</SyntaxHighlighter>
         </div>
       </div>
-      {secondButtonValue ? (
-        <></>
-      ) : (
+      {secondButtonValue ? null : (
         <div className="next-btn">
-          <button
-            className="icon-button"
-            onClick={() => increaseSecondButtonValue()}
-          >
+          <button className="icon-button" onClick={handleSubmit}>
             <img src={next} alt="next" /> 다음
           </button>
         </div>

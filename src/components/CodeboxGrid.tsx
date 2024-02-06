@@ -5,16 +5,7 @@ import { ReactComponent as Edit } from "../assets/edit.svg";
 import next from "../assets/next.png";
 import useBearStore from "../store/store";
 
-const codeString = `<div className="comment-info">
-  <div className="author">hey_miss_true</div>
-  <div className="comment">
-    Lorem Ipsum is simply dummy text of the printing and typesetting
-    industry. Lorem Ipsum has been the industry's standard dummy text ever
-    since the 1500s, when an unknown printer took a galley of type and
-    scrambled it to make a type specimen book.
-  </div>
-  <div className="reply">답글 달기</div>
-</div>`;
+const CODE_CONTENT = "CODE_CONTENT";
 
 const selectList = [
   { value: "python", name: "Python" },
@@ -24,7 +15,8 @@ const selectList = [
 ];
 
 function CodeboxGrid() {
-  const [content, setContent] = useState(codeString);
+  const [content, setContent] = useState<string>(" ");
+  const [selected, setSelected] = useState("python");
   const firstButtonValue = useBearStore((state) => state.firstButtonValue);
   const increaseFirstButtonValue = useBearStore(
     (state) => state.increaseFirstButton
@@ -37,10 +29,15 @@ function CodeboxGrid() {
     setContent(e.target.value);
   }
 
-  const [selected, setSelected] = useState("python");
-
   const handleSelect = (e: any) => {
     setSelected(e.target.value);
+  };
+
+  const handleSubmit = () => {
+    if (content) {
+      localStorage.setItem(CODE_CONTENT, content);
+      increaseFirstButtonValue();
+    }
   };
 
   return (
@@ -68,9 +65,7 @@ function CodeboxGrid() {
         </div>
       </div>
       <div className="codebox-container">
-        {firstButtonValue ? (
-          <></>
-        ) : (
+        {firstButtonValue ? null : (
           <div className="codebox-typing">
             <textarea onChange={onChange} />
           </div>
@@ -91,9 +86,7 @@ function CodeboxGrid() {
                 <Edit width="40%" height="100%" strokeWidth="0.5" />
               </button>
             </div>
-          ) : (
-            <></>
-          )}
+          ) : null}
           <SyntaxHighlighter language={selected}>{content}</SyntaxHighlighter>
         </div>
       </div>
@@ -101,10 +94,7 @@ function CodeboxGrid() {
         <></>
       ) : (
         <div className="next-btn">
-          <button
-            className="icon-button"
-            onClick={() => increaseFirstButtonValue()}
-          >
+          <button className="icon-button" onClick={handleSubmit}>
             <img src={next} alt="next" /> 다음
           </button>
         </div>

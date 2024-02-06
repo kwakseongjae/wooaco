@@ -2,24 +2,24 @@ import { Editor } from "@toast-ui/react-editor";
 import "@toast-ui/editor/dist/toastui-editor.css";
 import { useEffect, useRef, useState } from "react";
 
-const CONTENT_KEY = "CONTENT_KEY";
+const DESCRIPTION_CONTENT = "DESCRIPTION_CONTENT";
 
 function EditorBox() {
   const [content, setContent] = useState<string>(" ");
   const editorRef = useRef<Editor>(null);
 
   useEffect(() => {
-    let item = localStorage.getItem(CONTENT_KEY);
+    let item = localStorage.getItem(DESCRIPTION_CONTENT);
     if (item) {
       editorRef.current?.getInstance().setMarkdown(item);
     }
   }, []);
 
-  const handleSave = (e: any) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
 
     const data = editorRef.current?.getInstance().getMarkdown() || "";
-    localStorage.setItem(CONTENT_KEY, JSON.stringify(data));
+    localStorage.setItem(DESCRIPTION_CONTENT, JSON.stringify(data));
   };
 
   return (
@@ -40,7 +40,7 @@ function EditorBox() {
           ["code", "codeblock"],
         ]}
       />
-      <button onClick={handleSave}>Write</button>
+      <button onClick={handleSubmit}>완료</button>
     </div>
   );
 }
