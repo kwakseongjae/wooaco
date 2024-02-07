@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import complete from "@assets/complete.png";
+import complete from "@assets/img/complete.png";
 import { Editor } from "@toast-ui/react-editor";
 import "@toast-ui/editor/dist/toastui-editor.css";
 
@@ -33,6 +33,7 @@ function EditorBox() {
         initialEditType="wysiwyg"
         useCommandShortcut={false}
         ref={editorRef}
+        usageStatistics={false}
         toolbarItems={[
           ["heading", "bold", "italic", "strike"],
           ["hr", "quote"],

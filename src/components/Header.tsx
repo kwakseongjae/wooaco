@@ -1,4 +1,4 @@
-import woowaco from "@assets/wooaco.png";
+import woowaco from "@assets/img/wooaco.png";
 
 function Header() {
   return (

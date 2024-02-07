@@ -1,37 +1,29 @@
-import { useState } from "react";
 import useButtonStore from "@store/buttonStore";
+import usePostStore from "@store/postStore";
 import LANGUAGE_LIST from "@assets/data/languageData";
-import next from "@assets/next.png";
-import edit from "@assets/edit.png";
-import arrowDown from "@assets/arrowdown.png";
+import next from "@assets/img/next.png";
+import edit from "@assets/img/edit.png";
+import arrowDown from "@assets/img/arrowdown.png";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 
-const CODE_CONTENT = "CODE_CONTENT";
-
 function Codebox() {
-  const [content, setContent] = useState<string>(" ");
-  const [selected, setSelected] = useState("python");
-  const firstButtonValue = useButtonStore((state) => state.firstButtonValue);
-  const increaseFirstButtonValue = useButtonStore(
-    (state) => state.increaseFirstButton
-  );
-  const decreaseFirstButtonValue = useButtonStore(
-    (state) => state.decreaseFirstButton
-  );
+  const firstButton = useButtonStore((state) => state.firstButton);
+  const toggleFirstButton = useButtonStore((state) => state.toggleFirstButton);
+  const lang = usePostStore((state) => state.lang);
+  const code = usePostStore((state) => state.code);
+  const setLang = usePostStore((state) => state.setLang);
+  const setCode = usePostStore((state) => state.setCode);
 
   function onChange(e: any) {
-    setContent(e.target.value);
+    setCode(e.target.value);
   }
 
   const handleSelect = (e: any) => {
-    setSelected(e.target.value);
+    setLang(e.target.value);
   };
 
   const handleSubmit = () => {
-    if (content) {
-      localStorage.setItem(CODE_CONTENT, content);
-      increaseFirstButtonValue();
-    }
+    toggleFirstButton();
   };
   return (
     <div className="codebox">
@@ -42,7 +34,7 @@ function Codebox() {
             name="lang"
             className="select"
             onChange={handleSelect}
-            value={selected}
+            value={lang}
           >
             {LANGUAGE_LIST.map((item) => {
               return (
@@ -58,7 +50,7 @@ function Codebox() {
         </div>
       </div>
       <div className="codebox-container">
-        {firstButtonValue ? null : (
+        {firstButton ? null : (
           <div className="codebox-typing">
             <textarea onChange={onChange} />
           </div>
@@ -66,24 +58,21 @@ function Codebox() {
 
         <div
           className="codebox-result"
-          style={firstButtonValue ? { width: "100%" } : {}}
+          style={firstButton ? { width: "100%" } : {}}
         >
-          {firstButtonValue ? (
+          {firstButton ? (
             <div className="edit-box">
               <div></div>
-              <button
-                className="edit"
-                onClick={() => decreaseFirstButtonValue()}
-              >
+              <button className="edit" onClick={() => toggleFirstButton()}>
                 <p>수정하기</p>
                 <img src={edit} alt="edit" />
               </button>
             </div>
           ) : null}
-          <SyntaxHighlighter language={selected}>{content}</SyntaxHighlighter>
+          <SyntaxHighlighter language={lang}>{code}</SyntaxHighlighter>
         </div>
       </div>
-      {firstButtonValue ? (
+      {firstButton ? (
         <></>
       ) : (
         <div className="next-btn">
