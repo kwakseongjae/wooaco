@@ -1,23 +1,10 @@
 import { useEffect, useState } from "react";
 import remarkGfm from "remark-gfm";
 import ReactMarkdown from "react-markdown";
-
-const CONTENT_KEY = "CONTENT_KEY";
+import usePostStore from "@store/postStore";
 
 function Description() {
-  const [content, setContent] = useState<string>(" ");
-
-  useEffect(() => {
-    try {
-      let localData = localStorage.getItem(CONTENT_KEY);
-      if (localData) {
-        let parsedData = JSON.parse(localData);
-        setContent(`${parsedData}`);
-      }
-    } catch {
-      console.log("No saved Data");
-    }
-  }, []);
+  const description = usePostStore((state) => state.description);
 
   return (
     <>
@@ -32,7 +19,7 @@ function Description() {
         </div>
         <div className="title">이게 왜 안되지...</div>
         <ReactMarkdown
-          children={content}
+          children={description}
           remarkPlugins={[remarkGfm]}
         ></ReactMarkdown>
       </div>
