@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useBearStore from "@store/store";
+import useButtonStore from "@store/store";
 import next from "@assets/next.png";
 import edit from "@assets/edit.png";
 import arrowDown from "@assets/arrowdown.png";
@@ -17,11 +17,11 @@ const selectList = [
 function Codebox() {
   const [content, setContent] = useState<string>(" ");
   const [selected, setSelected] = useState("python");
-  const firstButtonValue = useBearStore((state) => state.firstButtonValue);
-  const increaseFirstButtonValue = useBearStore(
+  const firstButtonValue = useButtonStore((state) => state.firstButtonValue);
+  const increaseFirstButtonValue = useButtonStore(
     (state) => state.increaseFirstButton
   );
-  const decreaseFirstButtonValue = useBearStore(
+  const decreaseFirstButtonValue = useButtonStore(
     (state) => state.decreaseFirstButton
   );
 
@@ -45,7 +45,7 @@ function Codebox() {
         <p>언어는</p>
         <div className="selectBox">
           <select
-            name="PL"
+            name="lang"
             className="select"
             onChange={handleSelect}
             value={selected}

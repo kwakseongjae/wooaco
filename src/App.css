@@ -293,13 +293,13 @@
   margin-left: 15px;
 }
 
-.post_title {
+.post-title {
   position: relative;
   width: 48%;
   margin: 70px 0 30px 15px;
 }
 
-.post_title input {
+.post-title input {
   font-size: 20px;
   color: #222222;
   width: 100%;
@@ -312,14 +312,14 @@
   z-index: 5;
 }
 
-.post_title input::placeholder {
+.post-title input::placeholder {
   color: #aaaaaa;
 }
-.post_title input:focus {
+.post-title input:focus {
   outline: none;
 }
 
-.post_title label {
+.post-title label {
   position: absolute;
   color: #aaa;
   left: 10px;
@@ -328,16 +328,16 @@
   transition: all 0.2s;
 }
 
-.post_title input:focus ~ label,
-.post_title input:valid ~ label {
+.post-title input:focus ~ label,
+.post-title input:valid ~ label {
   font-size: 16px;
   bottom: 40px;
   color: #666;
   font-weight: bold;
 }
 
-.post_title input:focus ~ span,
-.post_title input:valid ~ span {
+.post-title input:focus ~ span,
+.post-title input:valid ~ span {
   width: 100%;
 }
 

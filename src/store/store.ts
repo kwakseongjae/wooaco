@@ -11,7 +11,7 @@ interface ButtonState {
   onSubmit: () => void;
 }
 
-const useBearStore = create<ButtonState>()((set) => ({
+const useButtonStore = create<ButtonState>()((set) => ({
   firstButtonValue: false,
   increaseFirstButton: () => set(() => ({ firstButtonValue: true })),
   decreaseFirstButton: () => set(() => ({ firstButtonValue: false })),
@@ -22,4 +22,4 @@ const useBearStore = create<ButtonState>()((set) => ({
   onSubmit: () => set(() => ({ submitButtonValue: true })),
 }));
 
-export default useBearStore;
+export default useButtonStore;
