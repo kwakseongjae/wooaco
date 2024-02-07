@@ -3,9 +3,13 @@ import remarkGfm from "remark-gfm";
 import ReactMarkdown from "react-markdown";
 import usePostStore from "@store/postStore";
 
-function Description() {
-  const description = usePostStore((state) => state.description);
-
+function Description({
+  title,
+  description,
+}: {
+  title: string;
+  description: string;
+}) {
   return (
     <>
       <div className="description">
@@ -17,7 +21,7 @@ function Description() {
           <div className="author">hey_miss_true</div>
           <div className="follow-button">💖</div>
         </div>
-        <div className="title">이게 왜 안되지...</div>
+        <div className="title">{title}</div>
         <ReactMarkdown
           children={description}
           remarkPlugins={[remarkGfm]}
