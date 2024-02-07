@@ -1,33 +1,29 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import complete from "@assets/img/complete.png";
 import { Editor } from "@toast-ui/react-editor";
+import usePostStore from "@store/postStore";
 import "@toast-ui/editor/dist/toastui-editor.css";
-
-const DESCRIPTION_CONTENT = "DESCRIPTION_CONTENT";
+import { useNavigate } from "react-router-dom";
 
 function EditorBox() {
-  const [content] = useState<string>(" ");
   const editorRef = useRef<Editor>(null);
-
-  useEffect(() => {
-    let item = localStorage.getItem(DESCRIPTION_CONTENT);
-    if (item) {
-      editorRef.current?.getInstance().setMarkdown(item);
-    }
-  }, []);
+  const description = usePostStore((state) => state.description);
+  const setDescription = usePostStore((state) => state.setDescription);
+  const navigate = useNavigate();
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
 
-    const data = editorRef.current?.getInstance().getMarkdown() || "";
-    localStorage.setItem(DESCRIPTION_CONTENT, JSON.stringify(data));
+    const data = editorRef.current?.getInstance().getMarkdown() || " ";
+    setDescription(data);
+    navigate("/detail");
   };
 
   return (
     <div className="editorbox">
       <p>문제 상황을 설명해주세요.</p>
       <Editor
-        initialValue={content || " "}
+        initialValue={description || " "}
         previewStyle="vertical"
         height="600px"
         initialEditType="wysiwyg"
