@@ -411,3 +411,29 @@ svg:hover {
   margin-top: 30px;
   margin-bottom: 30px;
 }
+
+.comment {
+  box-size: border-box;
+  height: 20%;
+  padding: 10px;
+  font-size: 14px;
+  margin-left: 20px;
+  border: 2px solid rgb(213, 194, 194);
+  outline-color: #2880f2;
+}
+
+.comment-submit {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.comment-submit .icon-button {
+  margin-top: 10px;
+  width: 80px;
+}
+
+.comment-submit .icon-button img {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+}

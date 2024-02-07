@@ -1,13 +1,9 @@
-import { useEffect, useState } from "react";
 import Header from "@components/Header";
-import Codebox from "@components/Codebox";
-import Terminal from "@components/Terminal";
 import Description from "@components/Description";
 import CommentList from "@components/CommentList";
+import send from "@assets/img/send.png";
 import usePostStore from "@store/postStore";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-
-const CONTENT_KEY = "CONTENT_KEY";
 
 function DetailPost() {
   const { title, lang, code, terminal, description } = usePostStore();
@@ -15,7 +11,6 @@ function DetailPost() {
   return (
     <>
       <Header />
-      {/* TODO: detail 페이지에선 readonly로 컨텐츠 제공 */}
       <div className="content_wrapper">
         <div className="code-container">
           <div className="codebox">
@@ -26,7 +21,6 @@ function DetailPost() {
                   ? "HTML"
                   : lang.charAt(0).toUpperCase() + lang.slice(1)}
               </p>
-              <div className="selectBox"></div>
             </div>
             <div className="codebox-container">
               <div className="codebox-result" style={{ width: "100%" }}>
@@ -42,7 +36,13 @@ function DetailPost() {
         </div>
         <div className="description-container">
           <Description title={title} description={description} />
-          <CommentList />
+          <textarea className="comment" />
+          <div className="comment-submit">
+            <button className="icon-button">
+              <img src={send} alt="next" />
+            </button>
+          </div>
+          {/* <CommentList /> */}
         </div>
       </div>
     </>
