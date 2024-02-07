@@ -1,18 +1,12 @@
 import { useState } from "react";
-import useButtonStore from "@store/store";
+import useButtonStore from "@store/buttonStore";
+import LANGUAGE_LIST from "@assets/data/languageData";
 import next from "@assets/next.png";
 import edit from "@assets/edit.png";
 import arrowDown from "@assets/arrowdown.png";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 
 const CODE_CONTENT = "CODE_CONTENT";
-
-const selectList = [
-  { value: "python", name: "Python" },
-  { value: "javascript", name: "Javascript" },
-  { value: "html", name: "HTML" },
-  { value: "bash", name: "Bash" },
-];
 
 function Codebox() {
   const [content, setContent] = useState<string>(" ");
@@ -50,9 +44,9 @@ function Codebox() {
             onChange={handleSelect}
             value={selected}
           >
-            {selectList.map((item) => {
+            {LANGUAGE_LIST.map((item) => {
               return (
-                <option value={item.value} key={item.value}>
+                <option key={item.id} value={item.value}>
                   {item.name}
                 </option>
               );
