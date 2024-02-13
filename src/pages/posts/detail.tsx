@@ -36,7 +36,7 @@ function DetailPost() {
         </div>
         <div className="description-container">
           <Description title={title} description={description} />
-          <textarea className="comment" />
+          <textarea className="comment" placeholder="댓글을 남겨주세요 !" />
           <div className="comment-submit">
             <button className="icon-button">
               <img src={send} alt="next" />

@@ -5,6 +5,8 @@ import usePostStore from "@store/postStore";
 import "@toast-ui/editor/dist/toastui-editor.css";
 import { useNavigate } from "react-router-dom";
 
+
+
 function EditorBox() {
   const editorRef = useRef<Editor>(null);
   const description = usePostStore((state) => state.description);

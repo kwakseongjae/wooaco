@@ -6,7 +6,11 @@ import edit from "@assets/img/edit.png";
 import arrowDown from "@assets/img/arrowdown.png";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 
-function Codebox() {
+interface PropsType {
+  setIsFirstButtonClicked: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+function Codebox({ setIsFirstButtonClicked }: PropsType) {
   const firstButton = useButtonStore((state) => state.firstButton);
   const toggleFirstButton = useButtonStore((state) => state.toggleFirstButton);
   const lang = usePostStore((state) => state.lang);
@@ -24,8 +28,9 @@ function Codebox() {
 
   const handleSubmit = () => {
     toggleFirstButton();
+    setIsFirstButtonClicked(true);
   };
-  
+
   return (
     <div className="codebox">
       <div className="lang-select">
@@ -53,7 +58,11 @@ function Codebox() {
       <div className="codebox-container">
         {firstButton ? null : (
           <div className="codebox-typing">
-            <textarea onChange={onChange} />
+            <textarea
+              value={code}
+              onChange={onChange}
+              placeholder="문제가 되는 코드를 입력해주세요."
+            />
           </div>
         )}
 

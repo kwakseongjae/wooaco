@@ -3,8 +3,13 @@ import Codebox from "@components/Codebox";
 import Terminal from "@components/Terminal";
 import EditorBox from "@components/EditorBox";
 import usePostStore from "@store/postStore";
+import { useState } from "react";
 function NewPost() {
   const setTitle = usePostStore((state) => state.setTitle);
+  const [isFirstButtonClicked, setIsFirstButtonClicked] =
+    useState<boolean>(false);
+  const [isSecondButtonClicked, setIsSecondButtonClicked] =
+    useState<boolean>(false);
 
   return (
     <>
@@ -16,11 +21,13 @@ function NewPost() {
       </div>
       <div className="newpost">
         <div className="code-container">
-          <Codebox />
-          <Terminal />
+          <Codebox setIsFirstButtonClicked={setIsFirstButtonClicked} />
+          {isFirstButtonClicked ? (
+            <Terminal setIsSecondButtonClicked={setIsSecondButtonClicked} />
+          ) : null}
         </div>
         <div className="editor-container">
-          <EditorBox />
+          {isSecondButtonClicked ? <EditorBox /> : null}
         </div>
       </div>
     </>

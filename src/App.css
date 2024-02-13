@@ -200,7 +200,18 @@
   width: 100%;
   height: 500px;
   margin-top: 10px;
+  animation: 0.5s ease-in-out loadEffect;
 }
+
+@keyframes loadEffect {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .codebox-typing {
   width: 48%;
 }
@@ -213,6 +224,8 @@
   font-size: 16px;
   line-height: 1.5;
   resize: none;
+  border: 2px solid rgb(213, 194, 194);
+  outline-color: #c2dbfe;
 }
 
 .terminal .selectBox {
@@ -257,6 +270,7 @@
   width: 50%;
   height: 100%;
   background-color: #f5f2f0;
+  animation: 0.5s ease-in-out loadEffect;
 }
 
 .codebox-result .edit {
@@ -403,6 +417,10 @@ svg {
 
 svg:hover {
   stroke-width: 3;
+}
+
+.editorbox {
+  animation: 0.5s ease-in-out loadEffect;
 }
 
 .editorbox p {

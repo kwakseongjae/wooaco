@@ -4,7 +4,11 @@ import next from "@assets/img/next.png";
 import edit from "@assets/img/edit.png";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 
-function Terminal() {
+interface PropsType {
+  setIsSecondButtonClicked: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+function Terminal({ setIsSecondButtonClicked }: PropsType) {
   const secondButton = useButtonStore((state) => state.secondButton);
   const toggleSecondButton = useButtonStore(
     (state) => state.toggleSecondButton
@@ -18,6 +22,7 @@ function Terminal() {
 
   const handleSubmit = () => {
     toggleSecondButton();
+    setIsSecondButtonClicked(true);
   };
 
   return (
@@ -25,7 +30,11 @@ function Terminal() {
       <div className="codebox-container">
         {secondButton ? null : (
           <div className="codebox-typing">
-            <textarea onChange={onChange} />
+            <textarea
+              value={terminal}
+              onChange={onChange}
+              placeholder="코드 실행 결과를 입력해주세요."
+            />
           </div>
         )}
 
