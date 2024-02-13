@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function HoePage() {
+function HomePage() {
   return (
     <>
       <Link to="/new">문제 올리기</Link>
@@ -9,4 +9,4 @@ function HoePage() {
   );
 }
 
-export default HoePage;
+export default HomePage;
